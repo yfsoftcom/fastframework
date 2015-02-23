@@ -3,7 +3,7 @@ package biz.yfsoft.app.fastframework.admin;
 import com.jfinal.core.Controller;
 
 //@Before(SessionInterceptor.class)
-public class IndexController extends Controller {
+public class AdminController extends Controller {
 //	private User user;
 
 //	@ClearInterceptor(ClearLayer.ALL)
@@ -28,8 +28,12 @@ public class IndexController extends Controller {
 		if (getSessionAttr("user") != null) {
 			render("/admin/index.html");
 		} else {
-			render("/admin/login.jsp");
+			render("/admin/users/list.jsp");
 		}
+	}
+	
+	public void users() {
+		render("/admin/users/list.jsp");
 	}
 
 //	public void message() {
