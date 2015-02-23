@@ -1,0 +1,5 @@
+jdbcUrl=jdbc:mysql://127.0.0.1/jfinal_blog?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+user=dbadmin
+password=87252798
+devMode=true
+baseViewPath=/themes/classic
