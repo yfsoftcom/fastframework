@@ -1,5 +1,6 @@
 package biz.yfsoft.app.fastframework.config;
 import biz.yfsoft.app.fastframework.admin.AdminController;
+import biz.yfsoft.app.fastframework.bo.User;
 
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
@@ -45,6 +46,7 @@ public class Config extends JFinalConfig {
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
 		me.add(arp);
 //		arp.addMapping("blog", Blog.class);	// 映射blog 表到 Blog模型
+		arp.addMapping("user", User.class);
 	}
 	
 	/**

@@ -1,10 +1,16 @@
 package biz.yfsoft.app.fastframework.admin;
 
+import biz.yfsoft.app.fastframework.bo.User;
+
+import com.alibaba.fastjson.JSONObject;
+import com.jfinal.aop.ClearInterceptor;
+import com.jfinal.aop.ClearLayer;
 import com.jfinal.core.Controller;
+import com.jfinal.kit.EncryptionKit;
 
 //@Before(SessionInterceptor.class)
 public class AdminController extends Controller {
-//	private User user;
+	private User user;
 
 //	@ClearInterceptor(ClearLayer.ALL)
 //	public void login() {
@@ -23,12 +29,27 @@ public class AdminController extends Controller {
 //		}
 //		renderJson(json.toJSONString());
 //	}
+	
+	@ClearInterceptor(ClearLayer.ALL)
+	public void doLogin() {
+		user = getModel(User.class);
+		user = User.dao.findFirst(
+				"select * from user where username=? and password=?",
+				user.getStr(User.USERNAME), EncryptionKit.md5Encrypt(user.getStr(User.PASSWORD)));
+		if (user == null) {
+//			json.put("error", 1);
+//			json.put("msg", "用户名或密码错误~");
+		} else {
+			setSessionAttr("user", user);
+		}
+		redirect("/admin/index");
+	}
 
 	public void index() {
 		if (getSessionAttr("user") != null) {
-			render("/admin/index.html");
+			render("/admin/main.jsp");
 		} else {
-			render("/admin/users/list.jsp");
+			render("/admin/login.jsp");
 		}
 	}
 	
