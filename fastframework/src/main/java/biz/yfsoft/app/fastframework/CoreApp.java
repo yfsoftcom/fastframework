@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
 import com.alibaba.fastjson.JSONObject;
+import com.jfinal.core.JFinal;
 
 public class CoreApp extends HttpServlet{
 
@@ -42,9 +43,11 @@ public class CoreApp extends HttpServlet{
 	}
 
 
+	/**
+	 * 建议使用 JFinal 手册推荐的方式启动项目
+	 * 运行此 main 方法可以启动项目，此main方法可以放置在任意的Class类定义中，不一定要放于此
+	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		JFinal.start("src/main/webapp", 89, "/", 5);
 	}
-
 }
