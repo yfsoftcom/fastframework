@@ -7,6 +7,7 @@
 		<title>欢迎使用FastFramework</title>
 		<link rel="shortcut icon" href="${APP.admin.base}/favicon.ico" />
 		<link href="${APP.bootstrap}/bootstrap.min.css" rel="stylesheet">
+		<link href="${APP.bootstrap}/plugins/bootstrap-table.css" rel="stylesheet">
 		<link href="${APP.public}/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 		<link href="${APP.admin.css}/styles.css" rel="stylesheet">
 		<link href="${APP.admin.css}/theme.css" rel="stylesheet">

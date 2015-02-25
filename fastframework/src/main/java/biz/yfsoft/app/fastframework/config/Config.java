@@ -1,5 +1,6 @@
 package biz.yfsoft.app.fastframework.config;
 import biz.yfsoft.app.fastframework.admin.AdminController;
+import biz.yfsoft.app.fastframework.admin.SettingController;
 import biz.yfsoft.app.fastframework.bo.User;
 
 import com.jfinal.config.Constants;
@@ -30,6 +31,7 @@ public class Config extends JFinalConfig {
 	 */
 	public void configRoute(Routes me) {
 		me.add("/admin", AdminController.class,"admin");
+		me.add("/admin/setting", SettingController.class,"admin");
 //		me.add("/", IndexController.class, "/index");	// 第三个参数为该Controller的视图存放路径
 //		me.add("/blog", BlogController.class);			// 第三个参数省略时默认与第一个参数值相同，在此即为 "/blog"
 	}
